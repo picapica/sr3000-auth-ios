@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>iAuth copy.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>iAuth.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -18,6 +23,11 @@
 			<true/>
 		</dict>
 		<key>4C2CDD0313FD61BF00B05CA2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4C974F8B1432119700B7BE67</key>
 		<dict>
 			<key>primary</key>
 			<true/>

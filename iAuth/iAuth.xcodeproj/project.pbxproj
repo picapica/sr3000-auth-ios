@@ -59,6 +59,7 @@
 		4C4611C91409418B00B4BF16 /* 77-ekg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "77-ekg@2x.png"; path = "Images/77-ekg@2x.png"; sourceTree = "<group>"; };
 		4C4611CA1409418B00B4BF16 /* 123-id-card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "123-id-card.png"; path = "Images/123-id-card.png"; sourceTree = "<group>"; };
 		4C4611CB1409418B00B4BF16 /* 123-id-card@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "123-id-card@2x.png"; path = "Images/123-id-card@2x.png"; sourceTree = "<group>"; };
+		4C974FAF1432119800B7BE67 /* iAuth copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "iAuth copy-Info.plist"; path = "/Users/KuangQi/Program/iAuth/iAuth copy-Info.plist"; sourceTree = "<absolute>"; };
 		4CA3D4DB1418F6AA00C3C206 /* ico57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ico57.png; path = iAuth/Images/ico57.png; sourceTree = "<group>"; };
 		4CA3D4DE1418F6C000C3C206 /* ico114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ico114.png; path = iAuth/Images/ico114.png; sourceTree = "<group>"; };
 		4CA3D4DF1418F6C000C3C206 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; name = iTunesArtwork; path = iAuth/Images/iTunesArtwork; sourceTree = "<group>"; };
@@ -97,6 +98,7 @@
 				4C2CDCE413FD61BE00B05CA2 /* iAuth */,
 				4C2CDCDD13FD61BE00B05CA2 /* Frameworks */,
 				4C2CDCDB13FD61BE00B05CA2 /* Products */,
+				4C974FAF1432119800B7BE67 /* iAuth copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -349,7 +351,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -366,7 +368,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -380,7 +382,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iAuth/iAuth-Prefix.pch";
 				INFOPLIST_FILE = "iAuth/iAuth-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -393,7 +395,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iAuth/iAuth-Prefix.pch";
 				INFOPLIST_FILE = "iAuth/iAuth-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
