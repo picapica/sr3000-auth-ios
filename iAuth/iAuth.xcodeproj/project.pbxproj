@@ -23,6 +23,7 @@
 		4C4611CF1409418B00B4BF16 /* 77-ekg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C4611C91409418B00B4BF16 /* 77-ekg@2x.png */; };
 		4C4611D01409418B00B4BF16 /* 123-id-card.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C4611CA1409418B00B4BF16 /* 123-id-card.png */; };
 		4C4611D11409418B00B4BF16 /* 123-id-card@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C4611CB1409418B00B4BF16 /* 123-id-card@2x.png */; };
+		4C9778F414543A9C0028E771 /* BNU.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C9778F314543A9C0028E771 /* BNU.png */; };
 		4CA3D4DC1418F6AA00C3C206 /* ico57.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CA3D4DB1418F6AA00C3C206 /* ico57.png */; };
 		4CA3D4E01418F6C000C3C206 /* ico114.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CA3D4DE1418F6C000C3C206 /* ico114.png */; };
 		4CA3D4E11418F6C000C3C206 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 4CA3D4DF1418F6C000C3C206 /* iTunesArtwork */; };
@@ -60,6 +61,7 @@
 		4C4611CA1409418B00B4BF16 /* 123-id-card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "123-id-card.png"; path = "Images/123-id-card.png"; sourceTree = "<group>"; };
 		4C4611CB1409418B00B4BF16 /* 123-id-card@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "123-id-card@2x.png"; path = "Images/123-id-card@2x.png"; sourceTree = "<group>"; };
 		4C974FAF1432119800B7BE67 /* iAuth copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "iAuth copy-Info.plist"; path = "/Users/KuangQi/Program/iAuth/iAuth copy-Info.plist"; sourceTree = "<absolute>"; };
+		4C9778F314543A9C0028E771 /* BNU.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BNU.png; path = Images/BNU.png; sourceTree = "<group>"; };
 		4CA3D4DB1418F6AA00C3C206 /* ico57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ico57.png; path = iAuth/Images/ico57.png; sourceTree = "<group>"; };
 		4CA3D4DE1418F6C000C3C206 /* ico114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ico114.png; path = iAuth/Images/ico114.png; sourceTree = "<group>"; };
 		4CA3D4DF1418F6C000C3C206 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; name = iTunesArtwork; path = iAuth/Images/iTunesArtwork; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 		4CDC6EE914013D42006B1874 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				4C9778F314543A9C0028E771 /* BNU.png */,
 				4C4611C61409418B00B4BF16 /* 59-info.png */,
 				4C4611C71409418B00B4BF16 /* 59-info@2x.png */,
 				4C4611C81409418B00B4BF16 /* 77-ekg.png */,
@@ -259,6 +262,7 @@
 				4CA3D4E11418F6C000C3C206 /* iTunesArtwork in Resources */,
 				4CA3D4E41418F6D000C3C206 /* Default.png in Resources */,
 				4CA3D4E51418F6D000C3C206 /* Default@2x.png in Resources */,
+				4C9778F414543A9C0028E771 /* BNU.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,7 +355,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -368,7 +372,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -382,7 +386,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iAuth/iAuth-Prefix.pch";
 				INFOPLIST_FILE = "iAuth/iAuth-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -395,7 +399,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iAuth/iAuth-Prefix.pch";
 				INFOPLIST_FILE = "iAuth/iAuth-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
