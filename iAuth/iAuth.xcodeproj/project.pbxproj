@@ -60,7 +60,6 @@
 		4C4611C91409418B00B4BF16 /* 77-ekg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "77-ekg@2x.png"; path = "Images/77-ekg@2x.png"; sourceTree = "<group>"; };
 		4C4611CA1409418B00B4BF16 /* 123-id-card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "123-id-card.png"; path = "Images/123-id-card.png"; sourceTree = "<group>"; };
 		4C4611CB1409418B00B4BF16 /* 123-id-card@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "123-id-card@2x.png"; path = "Images/123-id-card@2x.png"; sourceTree = "<group>"; };
-		4C974FAF1432119800B7BE67 /* iAuth copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "iAuth copy-Info.plist"; path = "/Users/KuangQi/Program/iAuth/iAuth copy-Info.plist"; sourceTree = "<absolute>"; };
 		4C9778F314543A9C0028E771 /* BNU.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BNU.png; path = Images/BNU.png; sourceTree = "<group>"; };
 		4CA3D4DB1418F6AA00C3C206 /* ico57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ico57.png; path = iAuth/Images/ico57.png; sourceTree = "<group>"; };
 		4CA3D4DE1418F6C000C3C206 /* ico114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ico114.png; path = iAuth/Images/ico114.png; sourceTree = "<group>"; };
@@ -100,7 +99,6 @@
 				4C2CDCE413FD61BE00B05CA2 /* iAuth */,
 				4C2CDCDD13FD61BE00B05CA2 /* Frameworks */,
 				4C2CDCDB13FD61BE00B05CA2 /* Products */,
-				4C974FAF1432119800B7BE67 /* iAuth copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
