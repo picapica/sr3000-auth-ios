@@ -69,11 +69,11 @@
     NSLog(@"Flags = %d\n", flags);
     if(flags == 7 || flags == 0) //网络不通
     {
-        domGateway.text = @"连接不通";
+        domGateway.text = @"未知";
         domGateway.textColor = [UIColor redColor];
-        bnuGateway.text = @"连接不通";
+        bnuGateway.text = @"未知";
         bnuGateway.textColor = [UIColor redColor];
-        webConnection.text = @"连接不通";
+        webConnection.text = @"未知";
         webConnection.textColor = [UIColor redColor];
         return;
     }
@@ -90,43 +90,43 @@
         if(len < 20) //空响应或者仅返回HTML头
         {
             if(len == 0) NSLog(@"Empty response received...\n");
-            domGateway.text = @"测试失败";
+            domGateway.text = @"未知";
             domGateway.textColor = [UIColor redColor];
-            bnuGateway.text = @"测试失败";
+            bnuGateway.text = @"未知";
             bnuGateway.textColor = [UIColor redColor];
-            webConnection.text = @"测试失败";
+            webConnection.text = @"未知";
             webConnection.textColor = [UIColor redColor];
         }
         else if((len > 100 && len < 200) || (len > 850 && len < 900)) //返回了校园网网关的跳转网页
         {
             if(len < 200) NSLog(@"School gateway jump page detected!\n");
             else NSLog(@"Dormitory login successful page detected!\n");
-            domGateway.text = @"已通过";
-            domGateway.textColor = [UIColor greenColor];
-            bnuGateway.text = @"需要连接";
-            bnuGateway.textColor = [UIColor redColor];
-            webConnection.text = @"未测试";
-            webConnection.textColor = [UIColor blueColor];
+            domGateway.text = @"未知";
+            domGateway.textColor = [UIColor grayColor];
+            bnuGateway.text = @"可连接";
+            bnuGateway.textColor = [UIColor blueColor];
+            webConnection.text = @"未知";
+            webConnection.textColor = [UIColor grayColor];
         }
         else if(len > 3000 && len < 4000) //返回了宿舍区网关的登录网页
         {
             NSLog(@"Dormitory area login page detected!\n");
-            domGateway.text = @"需要连接";
-            domGateway.textColor = [UIColor redColor];
-            bnuGateway.text = @"未测试";
-            bnuGateway.textColor = [UIColor blueColor];
-            webConnection.text = @"未测试";
-            webConnection.textColor = [UIColor blueColor];
+            domGateway.text = @"可连接";
+            domGateway.textColor = [UIColor blueColor];
+            bnuGateway.text = @"未知";
+            bnuGateway.textColor = [UIColor grayColor];
+            webConnection.text = @"未知";
+            webConnection.textColor = [UIColor grayColor];
         }
         else if((len > 6000))// || (len > 850 && len < 900)) //返回了百度主页(或者返回不带跳转的宿舍区网关，不知道这个诡异的问题从何而来)
         {
             NSLog(@"Baidu search page detected!\n");
-            domGateway.text = @"已通过";
-            domGateway.textColor = [UIColor greenColor];
-            bnuGateway.text = @"已通过";
-            bnuGateway.textColor = [UIColor greenColor];
-            webConnection.text = @"连接成功";
-            webConnection.textColor = [UIColor  greenColor];
+            domGateway.text = @"未知";
+            domGateway.textColor = [UIColor grayColor];
+            bnuGateway.text = @"未知";
+            bnuGateway.textColor = [UIColor grayColor];
+            webConnection.text = @"已连接";
+            webConnection.textColor = [UIColor  blueColor];
             //if(len > 850 && len < 900) webConnection.text = @"连接成功.";
         }
         else
