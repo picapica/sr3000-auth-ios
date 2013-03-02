@@ -26,7 +26,7 @@
 - (void) Alert:(NSString *) msg
 {
     UIAlertView *alert = nil;
-    alert = [[[UIAlertView alloc]initWithTitle:@"认证网关" message:msg delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil] autorelease];
+    alert = [[[UIAlertView alloc]initWithTitle:@"Hi" message:msg delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil] autorelease];
     [alert show];
 }
 
@@ -62,16 +62,18 @@
     [super dealloc];
 }
 
-- (IBAction)btnTestConnection:(id)sender {    
+- (IBAction)btnTestConnection:(id)sender {
+    NSLog(@"正在测试网络状况");
+    
     SCNetworkReachabilityFlags flags;
-    SCNetworkReachabilityRef ref = SCNetworkReachabilityCreateWithName(NULL, "www.qq.com");
+    SCNetworkReachabilityRef ref = SCNetworkReachabilityCreateWithName(NULL, "www.baidu.com");
     SCNetworkReachabilityGetFlags(ref, &flags);
     NSLog(@"Flags = %d\n", flags);
     if(flags == 7 || flags == 0) //网络不通
     {
-        domGateway.text = @"未知";
+        domGateway.text = @"-";
         domGateway.textColor = [UIColor redColor];
-        bnuGateway.text = @"未知";
+        bnuGateway.text = @"-";
         bnuGateway.textColor = [UIColor redColor];
         webConnection.text = @"未知";
         webConnection.textColor = [UIColor redColor];
@@ -79,20 +81,21 @@
     }
     else if(flags == 2 || flags == 3)
     {
-        NSString *url = [[NSString alloc]initWithFormat:@"http://www.qq.com/"];
-        NSMutableURLRequest *testRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:5.0];
+        NSString *url = [[NSString alloc]initWithFormat:@"http://www.baidu.com/"];
+        NSMutableURLRequest *testRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:5.0]; // ignore cache
         NSURLResponse *testResponse;
         NSError *testError;
         NSData *testData = [NSURLConnection sendSynchronousRequest:testRequest returningResponse:&testResponse error:&testError];
         NSString *response = [[[NSString alloc] initWithData:testData encoding:NSASCIIStringEncoding] autorelease];
         int len = [response length];
+        
         NSLog(@"Connection test response length = %d\n", len);
         if(len < 20) //空响应或者仅返回HTML头
         {
             if(len == 0) NSLog(@"Empty response received...\n");
-            domGateway.text = @"未知";
+            domGateway.text = @"-";
             domGateway.textColor = [UIColor redColor];
-            bnuGateway.text = @"未知";
+            bnuGateway.text = @"-";
             bnuGateway.textColor = [UIColor redColor];
             webConnection.text = @"未知";
             webConnection.textColor = [UIColor redColor];
@@ -101,11 +104,11 @@
         {
             if(len < 200) NSLog(@"School gateway jump page detected!\n");
             else NSLog(@"Dormitory login successful page detected!\n");
-            domGateway.text = @"未知";
+            domGateway.text = @"-";
             domGateway.textColor = [UIColor grayColor];
             bnuGateway.text = @"可连接";
             bnuGateway.textColor = [UIColor blueColor];
-            webConnection.text = @"未知";
+            webConnection.text = @"-";
             webConnection.textColor = [UIColor grayColor];
         }
         else if(len > 3000 && len < 4000) //返回了宿舍区网关的登录网页
@@ -113,17 +116,17 @@
             NSLog(@"Dormitory area login page detected!\n");
             domGateway.text = @"可连接";
             domGateway.textColor = [UIColor blueColor];
-            bnuGateway.text = @"未知";
+            bnuGateway.text = @"-";
             bnuGateway.textColor = [UIColor grayColor];
-            webConnection.text = @"未知";
+            webConnection.text = @"-";
             webConnection.textColor = [UIColor grayColor];
         }
         else if((len > 6000))// || (len > 850 && len < 900)) //返回了百度主页(或者返回不带跳转的宿舍区网关，不知道这个诡异的问题从何而来)
         {
             NSLog(@"Baidu search page detected!\n");
-            domGateway.text = @"未知";
+            domGateway.text = @"-";
             domGateway.textColor = [UIColor grayColor];
-            bnuGateway.text = @"未知";
+            bnuGateway.text = @"-";
             bnuGateway.textColor = [UIColor grayColor];
             webConnection.text = @"已连接";
             webConnection.textColor = [UIColor  blueColor];
@@ -134,37 +137,6 @@
             [self Alert:[[[NSString alloc] initWithFormat:@"发生了未知错误\n请将此信息反馈给开发者\n响应长度%d字节", len] autorelease]];
             //NSLog(@"\n%@", response);
         }
-        /*
-        if([response length]<2)
-        {
-            domGateway.text = @"无需连接";
-            domGateway.textColor = [UIColor blueColor];
-            bnuGateway.text = @"连接成功";
-            bnuGateway.textColor = [UIColor greenColor];
-            webConnection.text = @"连接不通";
-            webConnection.textColor = [UIColor redColor];
-            return;
-        }
-        if([response length]<1000)
-        {
-            domGateway.text = @"已经连上";
-            domGateway.textColor = [UIColor greenColor];
-            bnuGateway.text = @"连接成功";
-            bnuGateway.textColor = [UIColor greenColor];
-            webConnection.text = @"连接不通";
-            webConnection.textColor = [UIColor redColor];
-            return;
-        }
-        if([response length]>3000)
-        {
-            domGateway.text = @"需要连接";
-            domGateway.textColor = [UIColor redColor];
-            bnuGateway.text = @"连接不通";
-            bnuGateway.textColor = [UIColor redColor];
-            webConnection.text = @"连接不通";
-            webConnection.textColor = [UIColor redColor];
-            return;
-        }*/
     }
     else
     {
@@ -173,11 +145,6 @@
 }
 
 - (IBAction)btnDLogin:(id)sender {
-    if(![KeyVerify verifyReg])
-    {
-        [self Alert:@"请注册后使用！"];
-        return;
-    }
     NSString *url = [[NSString alloc]initWithFormat:@"http://%@/portal/logon.cgi", [KeyVerify Values].dIP];
     NSMutableURLRequest *dloginRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:5.0];
     [dloginRequest setHTTPMethod:@"POST"];
@@ -190,13 +157,13 @@
     if(len < 20) [self Alert:@"登录宿舍区网关失败\n可能是您不在宿舍区\n或者宿舍区无线信号差"];
     else if(len < 1200)
     {
-        [self Alert:@"登录宿舍区网关成功！"];
+        // [self Alert:@"登录宿舍区网关成功！"];
     }
     else
     {
         [self Alert:@"登录宿舍区网关失败！\n可能是用户名或密码错误"];
     }
-    usleep(300000);
+    //usleep(1300000);
     [self btnTestConnection:nil];
     NSLog(@"DLogin response data length = %d\n", len);
 }
@@ -216,8 +183,8 @@
     NSData *dlogoutData = [NSURLConnection sendSynchronousRequest:dlogoutRequest returningResponse:&dlogoutResponse error:&dlogoutError];
     int len = [[[[NSString alloc] initWithData:dlogoutData encoding:NSASCIIStringEncoding] autorelease] length];
     if(len == 0) [self Alert:@"登出宿舍区网关失败\n可能是您不在宿舍区\n或者宿舍区无线信号差"];
-    else [self Alert:@"登出宿舍区网关成功！"];
-    usleep(300000);
+    //else [self Alert:@"登出宿舍区网关成功！"];
+    //usleep(1300000);
     [self btnTestConnection:nil];
     NSLog(@"DLogout response data length = %d\n", len);
 }
@@ -251,9 +218,11 @@
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", @"^[0-9]+$"];
     if([predicate evaluateWithObject:response])
     {
-        [self Alert:@"登录成功！"];
+        // [self Alert:@"登录成功！"];
         [self setStatus:response];
-        usleep(300000);
+        
+        webConnection.text = @"登录成功";
+        //usleep(1300000); // 1.3 senconds
         [self btnTestConnection:nil];
         return;
     }
@@ -325,7 +294,7 @@
     {
         [self Alert:[[NSString alloc] initWithFormat:@"登录校园网发生未知错误\n错误信息：\n%@", response]];
     }
-    usleep(300000);
+    //usleep(1300000);
     [self btnTestConnection:nil];
 }
 
@@ -342,36 +311,17 @@
     }
     NSString *url = [[NSString alloc]initWithFormat:@"http://%@/cgi-bin/do_logout", [KeyVerify Values].IP];
     NSMutableURLRequest *logoutRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:5.0];
-    [logoutRequest setHTTPMethod:@"POST"];
-    [logoutRequest setHTTPBody:[[NSString stringWithFormat:@"uid=%@", [self status]] dataUsingEncoding:NSASCIIStringEncoding]];
+    //[logoutRequest setHTTPMethod:@"POST"];
+    //[logoutRequest setHTTPBody:[[NSString stringWithFormat:@"uid=%@", [self status]] dataUsingEncoding:NSASCIIStringEncoding]];
     NSURLResponse *logoutResponse;
     NSError *logoutError;
     NSData *logoutData = [NSURLConnection sendSynchronousRequest:logoutRequest returningResponse:&logoutResponse error:&logoutError];
     NSString *response = [[[NSString alloc] initWithData:logoutData encoding:NSASCIIStringEncoding] autorelease];
     NSLog(@"Logout info = %@\n", response);
-    if([response isEqualToString:@"logout_ok"])
-    {
-        [self Alert:@"登出校园网网关成功!"];
-    }
-    else
-    {
-        [self Alert:@"登出校园网网关失败！"];
-    }
-    usleep(300000);
     [self btnTestConnection:nil];
 }
 
 - (IBAction)btnForceLogout:(id)sender {
-    if(![KeyVerify verifyReg])
-    {
-        [self Alert:@"请注册后使用！"];
-        return;
-    }
-    if([domGateway.text isEqualToString:@"需要连接"])
-    {
-        [self Alert:@"检测到您在宿舍区，请先连接宿舍区网关！"];
-        return;
-    }
     NSString *url = [[NSString alloc]initWithFormat:@"http://%@/cgi-bin/force_logout", [KeyVerify Values].IP];
     NSMutableURLRequest *forceRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:5.0];
     [forceRequest setHTTPMethod:@"POST"];
@@ -411,7 +361,7 @@
     {
         [self Alert:[[NSString alloc] initWithFormat:@"强制离线发生未知错误\n错误信息：\n%@", response]];
     }
-    usleep(300000);
+    //usleep(1300000);
     [self btnTestConnection:nil];
 }
 
